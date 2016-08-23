@@ -1,0 +1,21 @@
+{
+  "name": "tapaculo",
+  "description": "Небольшое веб-приложение для редактирования таблиц в БД. Цель - ознакомиться на практике с современными технологиями разработки веб-приложений.",
+  "main": "editor.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rumter/tapaculo.git"
+  },
+  "bugs": {
+    "url": "https://github.com/rumter/tapaculo/issues"
+  },
+  "homepage": "https://github.com/rumter/tapaculo#readme",
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "bootswatch": "^3.3.7",
+    "jquery": "^3.1.0"
+  }
+}
