@@ -1,9 +1,6 @@
-var Hello = require('./Hello');
-
+import Hello from "./Hello";
 
 $(document).ready(function() {
-	var hello = new Hello();
+	let hello = new Hello();
 	hello.say();
 });
-
-

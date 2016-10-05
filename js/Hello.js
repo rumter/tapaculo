@@ -1,9 +1,7 @@
-function Hello() {
-}
+export default class Hello {
 
-Hello.prototype.say = function () {
-	alert("hello!");
-}
+	say() {
+		alert("hello!");
+	}
 
-module.exports = Hello;
-
+};
