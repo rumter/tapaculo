@@ -1,6 +1,10 @@
-import Hello from "./Hello";
+import TapEditPage from "./TapEditPage";
+
 
 $(document).ready(function() {
-	let hello = new Hello();
-	hello.say();
+
+	ReactDOM.render(
+		<TapEditPage />, 
+		document.getElementById('container'));
+
 });
