@@ -1,4 +1,4 @@
-import TapRow from './TapRow'
+import TapRow from './TapRow';
 
 export default class TapGrid extends React.Component {
 
