@@ -17,166 +17,17 @@
     </div>
   </nav>
 
-  <div class="container"> <!-- container begin -->
-
-    <div class="page-header">
-      <div class="row">
-        <h1>Edit</h1>
-      </div>
-    </div>
-
-    <div class="row">
-      <table class="table table-striped table-hover">
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>String</th>
-            <th>Date</th>
-            <th>Number</th>
-            <th>Boolean</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>1</td>
-            <td>Canada</td>
-            <td>19.08.2016</td>
-            <td>61</td>
-            <td>true</td>
-          </tr>
-          <tr>
-            <td>2</td>
-            <td>Philippines</td>
-            <td>02.05.2016</td>
-            <td>56</td>
-            <td>false</td>
-          </tr>
-          <tr>
-            <td>3</td>
-            <td>Indonesia</td>
-            <td>17.05.2016</td>
-            <td>28</td>
-            <td>true</td>
-          </tr>
-          <tr>
-            <td>4</td>
-            <td>China</td>
-            <td>15.03.2016</td>
-            <td>54</td>
-            <td>true</td>
-          </tr>
-          <tr>
-            <td>5</td>
-            <td>France</td>
-            <td>23.02.2016</td>
-            <td>39</td>
-            <td>true</td>
-          </tr>
-          <tr>
-            <td>6</td>
-            <td>France</td>
-            <td>08.04.2016</td>
-            <td>51</td>
-            <td>false</td>
-          </tr>
-          <tr>
-            <td>7</td>
-            <td>Mexico</td>
-            <td>21.04.2016</td>
-            <td>9</td>
-            <td>false</td>
-          </tr>
-          <tr>
-            <td>8</td>
-            <td>Brazil</td>
-            <td>03.01.2016</td>
-            <td>97</td>
-            <td>true</td>
-          </tr>
-          <tr>
-            <td>9</td>
-            <td>Brazil</td>
-            <td>10.12.2015</td>
-            <td>81</td>
-            <td>false</td>
-          </tr>
-          <tr>
-            <td>10</td>
-            <td>Indonesia</td>
-            <td>19.11.2015</td>
-            <td>71</td>
-            <td>true</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-
-    <div class="row well">
-      <form class="form-horizontal">
-        <fieldset>
-          <div class="row">
-
-            <div class="col-lg-6">
-              <div class="form-group">
-                <label for="inputString" class="col-lg-2 control-label">String</label>
-                <div class="col-lg-10">
-                  <input class="form-control" id="inputString" placeholder="String" type="text">
-                </div>
-              </div>
-
-              <div class="form-group">
-                <label for="inputDate" class="col-lg-2 control-label">Date</label>
-                <div class="col-lg-10">
-                  <input class="form-control" id="inputDate" placeholder="Date" type="date">
-                </div>
-              </div>
-            </div>
-
-            <div class="col-lg-6">
-              <div class="form-group">
-                <label for="inputNumber" class="col-lg-2 control-label">Number</label>
-                <div class="col-lg-10">
-                  <input class="form-control" id="inputNumber" placeholder="Number" type="text">
-                </div>
-              </div>
-
-              <div class="form-group">              
-                <div class="col-lg-10">
-                  <div class="checkbox">
-                    <label>
-                      <input type="checkbox"> Boolean
-                    </label>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-          </div>
-
-          <div class="form-group">
-            <label for="textArea" class="col-lg-1 control-label">Textarea</label>
-            <div class="col-lg-11">
-              <textarea class="form-control" rows="3" id="textArea"></textarea>
-              <span class="help-block">A longer block of help text that breaks onto a new line and may extend beyond one line.</span>
-            </div>
-          </div>
-          
-          <div class="form-group">
-            <div class="col-lg-10 col-lg-offset-1">
-              <button type="reset" class="btn btn-default">Cancel</button>
-              <button type="submit" class="btn btn-primary">Submit</button>
-            </div>
-          </div>
-          
-        </fieldset>
-      </form>
-    </div>
-    
+  <div id="container" class="container"> <!-- container begin -->
   </div> <!-- container end -->
 
   <!-- jQuery -->
-  <script src="node_modules/jquery/dist/jquery.min.js"></script>
+  <script src="node_modules/jquery/dist/jquery.js"></script>
   <!-- Bootstrap -->
-  <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="node_modules/bootstrap/dist/js/bootstrap.js"></script>
+  <!-- React -->
+  <script src="node_modules/react/dist/react.js"></script>
+  <script src="node_modules/react-dom/dist/react-dom.js"></script>
+  <!-- Bundle -->
+  <script src="assets/bundle.js"></script>
 </body>
 </html>
