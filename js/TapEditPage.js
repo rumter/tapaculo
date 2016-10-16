@@ -4,11 +4,21 @@ import TapForm from './form/TapForm';
 
 export default class TapEditPage extends React.Component {
 
-	render () {
+	constructor(props) {
+		super(props);
+
+		this.onSelect = this.onSelect.bind(this);
+	}
+
+	onSelect(entry) {
+		console.log(entry);
+	}
+
+	render() {
 		return (
 			<div>
 				<TapTitle title="Edit" />
-				<TapGrid />
+				<TapGrid onSelect={this.onSelect} />
 				<TapForm />
 			</div>
 		);

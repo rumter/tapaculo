@@ -36,7 +36,7 @@ export default class TapGrid extends React.Component {
 					</thead>
 					<tbody>
 						{this.state.entries.map(entry => 
-							<TapRow key={entry.id} entry={entry} />
+							<TapRow key={entry.id} entry={entry} onSelect={this.props.onSelect} />
 						)}
 					</tbody>
 				</table>
