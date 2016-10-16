@@ -5,7 +5,10 @@
 
 ## Используемые технологии
 - `npm`
+- `webpack`
 - `bootswatch` (темы для `bootstrap`)
+- `babel` (для `jsx` и `es2015`)
+- `react`
 
 ## Сборка и запуск
 1. Выполняем `npm install` в корне проекта.
