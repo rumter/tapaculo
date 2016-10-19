@@ -2,6 +2,9 @@ import TapRow from './TapRow';
 
 export default class TapGrid extends React.Component {
 
+	/**
+	 * @param props.entriesLoader
+	 */
 	constructor(props) {
 		super(props);
 

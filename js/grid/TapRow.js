@@ -1,5 +1,8 @@
 export default class TapRow extends React.Component {
 
+	/**
+	 * @param props.entry
+	 */
 	constructor(props) {
 		super(props);
 

@@ -4,8 +4,15 @@ import TapForm from './form/TapForm';
 
 export default class TapEditPage extends React.Component {
 
+	/**
+	 * @param props: []
+	 */
 	constructor(props) {
 		super(props);
+
+		this.state = {
+			selectedEntry: {}
+		};
 
 		this.loadEntries = this.loadEntries.bind(this);
 		this.onSelect = this.onSelect.bind(this);
@@ -27,6 +34,9 @@ export default class TapEditPage extends React.Component {
 	}
 
 	onSelect(entry) {
+		this.setState({ 
+			selectedEntry: entry 
+		});
 		console.log(entry);
 	}
 
@@ -38,7 +48,7 @@ export default class TapEditPage extends React.Component {
 					entriesLoader={this.loadEntries} 
 					onSelect={this.onSelect} 
 				/>
-				<TapForm />
+				<TapForm entry={this.state.selectedEntry} />
 			</div>
 		);
 	}
