@@ -16,6 +16,8 @@ export default class TapEditPage extends React.Component {
 
 		this.loadEntries = this.loadEntries.bind(this);
 		this.onSelect = this.onSelect.bind(this);
+		this.onCancel = this.onCancel.bind(this);
+		this.onSubmit = this.onSubmit.bind(this);
 	}
 
 	loadEntries() {
@@ -40,6 +42,14 @@ export default class TapEditPage extends React.Component {
 		console.log(entry);
 	}
 
+	onCancel() {
+		console.log("cancel");
+	}
+
+	onSubmit() {
+		console.log("submit");
+	}
+
 	render() {
 		return (
 			<div>
@@ -48,7 +58,11 @@ export default class TapEditPage extends React.Component {
 					entriesLoader={this.loadEntries} 
 					onSelect={this.onSelect} 
 				/>
-				<TapForm entry={this.state.selectedEntry} />
+				<TapForm 
+					entry={this.state.selectedEntry} 
+					onCancel={this.onCancel}
+					onSubmit={this.onSubmit}
+				/>
 			</div>
 		);
 	}
