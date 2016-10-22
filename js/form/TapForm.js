@@ -3,22 +3,13 @@ import TapDateField from './TapDateField';
 import TapCheckboxField from './TapCheckboxField';
 import TapTextareaField from './TapTextareaField';
 
-const MODES = Object.freeze({
-	VIEW_DETAILS: 1,
-	CREATE: 2,
-	EDIT: 3
-});
-
-const LEGENDS = Object.freeze({
-	[MODES.VIEW_DETAILS]: "Details",
-	[MODES.CREATE]: "Create new entry",
-	[MODES.EDIT]: "Edit entry"
-});
-
 export default class TapForm extends React.Component {
 
 	/**
+	 * @param props.title
 	 * @param props.entry
+	 * @param props.enabled
+	 * @param props.btnsEnabled
 	 * @props props.onCancel
 	 * @props props.onSubmit
 	 */
@@ -27,7 +18,6 @@ export default class TapForm extends React.Component {
 
 		this.state = {
 			entry: this.props.entry,
-			mode: MODES.VIEW_DETAILS
 		};
 
 		this.onCancel = this.onCancel.bind(this);
@@ -35,12 +25,11 @@ export default class TapForm extends React.Component {
 	}
 
 	componentWillReceiveProps(nextProps) {
-		this.setState({ entry: nextProps.entry, mode: MODES.EDIT });
+		this.setState({ entry: nextProps.entry });
 	}
 
 	onCancel(event) {
 		event.preventDefault();
-		this.setState({ entry: this.props.entry, mode: MODES.VIEW_DETAILS });
 		this.props.onCancel();
 	}
 
@@ -49,10 +38,20 @@ export default class TapForm extends React.Component {
 		this.props.onSubmit();
 	}
 
-	getButtonsStyleClass() {
+	getFormStyleClasses() {
+		let styleClasses = ["row", "well"];
+
+		if (! this.props.enabled) {
+			styleClasses.push("hide");
+		}
+
+		return styleClasses.join(" ");
+	}
+
+	getButtonsStyleClasses() {
 		let styleClasses = ["form-group"];
 
-		if (this.state.mode == MODES.VIEW_DETAILS) {
+		if (! this.props.btnsEnabled) {
 			styleClasses.push("hide");
 		}
 
@@ -62,10 +61,10 @@ export default class TapForm extends React.Component {
 	render() {
 		let entry = this.state.entry;
 		return (
-			<div className="row well">
+			<div className={this.getFormStyleClasses()}>
 				<form className="form-horizontal">
 					<fieldset>
-						<legend>{LEGENDS[this.state.mode]}</legend>
+						<legend>{this.props.title}</legend>
 						<div className="row">
 							<div className="col-lg-6">
 								<TapTextField name="inputString" desc="String" value={entry.string} />
@@ -77,14 +76,14 @@ export default class TapForm extends React.Component {
 							</div>
 						</div>
 
-						<TapTextareaField 
-							name="inputTextarea" 
-							desc="Textarea" 
+						<TapTextareaField
+							name="inputTextarea"
+							desc="Textarea"
 							value={entry.text}
-							help="Some help description" 
+							help="Some help description"
 						/>
 
-						<div className={this.getButtonsStyleClass()}>
+						<div className={this.getButtonsStyleClasses()}>
 							<div className="col-lg-1 col-lg-offset-1">
 								<button type="reset"
 									className="btn btn-default"

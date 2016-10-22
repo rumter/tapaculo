@@ -15,13 +15,13 @@ export default class TapTextareaField extends React.Component {
 
 	componentWillReceiveProps(nextProps) {
 		this.setState({
-			value: nextProps.value
+			value: nextProps.value || ''
 		});
 	}
 
 	onChange(event) {
 		this.setState({
-			value: event.target.value
+			value: event.target.value || ''
 		});
 	}
 	

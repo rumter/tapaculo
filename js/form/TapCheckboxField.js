@@ -15,7 +15,7 @@ export default class TapCheckboxField extends React.Component {
 
 	componentWillReceiveProps(nextProps) {
 		this.setState({
-			value: nextProps.value
+			value: nextProps.value || false
 		});
 	}
 
