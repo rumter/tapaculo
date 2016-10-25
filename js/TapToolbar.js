@@ -1,3 +1,5 @@
+import TapHelper from './utils/TapHelper';
+
 export default class TapToolbar extends React.Component {
 
 	/**
@@ -17,33 +19,15 @@ export default class TapToolbar extends React.Component {
 	}
 
 	getBtnCreateStyleClasses() {
-		let styleClasses = ["btn", "btn-success"];
-
-		if (! this.props.createEnabled) {
-			styleClasses.push("disabled");
-		}
-
-		return styleClasses.join(" ");
+		return TapHelper.joinStyleClasses(["btn", "btn-success"], "disabled", ! this.props.createEnabled);
 	}
 
 	getBtnEditStyleClasses() {
-		let styleClasses = ["btn", "btn-primary"];
-
-		if (! this.props.editEnabled) {
-			styleClasses.push("disabled");
-		}
-
-		return styleClasses.join(" ");
+		return TapHelper.joinStyleClasses(["btn", "btn-primary"], "disabled", ! this.props.editEnabled);
 	}
 
 	getBtnDeleteStyleClasses() {
-		let styleClasses = ["btn", "btn-danger"];
-
-		if (! this.props.deleteEnabled) {
-			styleClasses.push("disabled");
-		}
-
-		return styleClasses.join(" ");
+		return TapHelper.joinStyleClasses(["btn", "btn-danger"], "disabled", ! this.props.deleteEnabled);
 	}
 
 	onCreate(event) {

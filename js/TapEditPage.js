@@ -34,7 +34,7 @@ const ToolbarEnables = Object.freeze({
 });
 
 const FormTitles = Object.freeze({
-	[Modes.NOT_SELECTED]: "",
+	[Modes.NOT_SELECTED]: "Details",
 	[Modes.VIEW_DETAILS]: "Details",
 	[Modes.CREATE]: "Create new entry",
 	[Modes.EDIT]: "Edit entry"
@@ -147,6 +147,7 @@ export default class TapEditPage extends React.Component {
 					title={FormTitles[this.state.mode]}
 					entry={this.state.selectedEntry} 
 					enabled={FormEnables[this.state.mode]}
+					msgForDisabled="Select an entry to view its details."
 					btnsEnabled={FormButtonsEnables[this.state.mode]}
 					onCancel={this.onCancel}
 					onSubmit={this.onSubmit}

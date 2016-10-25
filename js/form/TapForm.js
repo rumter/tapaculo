@@ -1,3 +1,4 @@
+import TapHelper from '../utils/TapHelper';
 import TapTextField from './TapTextField';
 import TapDateField from './TapDateField';
 import TapCheckboxField from './TapCheckboxField';
@@ -9,6 +10,7 @@ export default class TapForm extends React.Component {
 	 * @param props.title
 	 * @param props.entry
 	 * @param props.enabled
+	 * @param props.msgForDisabled
 	 * @param props.btnsEnabled
 	 * @props props.onCancel
 	 * @props props.onSubmit
@@ -39,30 +41,22 @@ export default class TapForm extends React.Component {
 	}
 
 	getFormStyleClasses() {
-		let styleClasses = ["row", "well"];
-
-		if (! this.props.enabled) {
-			styleClasses.push("hide");
-		}
-
-		return styleClasses.join(" ");
+		return TapHelper.joinStyleClasses(["form-horizontal"], "hide", ! this.props.enabled);
 	}
 
 	getButtonsStyleClasses() {
-		let styleClasses = ["form-group"];
+		return TapHelper.joinStyleClasses(["form-group"], "hide", ! this.props.btnsEnabled);
+	}
 
-		if (! this.props.btnsEnabled) {
-			styleClasses.push("hide");
-		}
-
-		return styleClasses.join(" ");
+	getEmptyFormStyleClasses() {
+		return TapHelper.joinStyleClasses(["form-group"], "hide", this.props.enabled);
 	}
 	
 	render() {
 		let entry = this.state.entry;
 		return (
-			<div className={this.getFormStyleClasses()}>
-				<form className="form-horizontal">
+			<div className="row well">
+				<form className={this.getFormStyleClasses()}>
 					<fieldset>
 						<legend>{this.props.title}</legend>
 						<div className="row">
@@ -97,6 +91,10 @@ export default class TapForm extends React.Component {
 						</div>
 					</fieldset>
 				</form>
+				<div className={this.getEmptyFormStyleClasses()}>
+					<legend>{this.props.title}</legend>
+					<p>{this.props.msgForDisabled}</p>
+				</div>
 			</div>
 		);
 	}
