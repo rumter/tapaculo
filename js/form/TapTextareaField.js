@@ -2,6 +2,7 @@ export default class TapTextareaField extends React.Component {
 
 	/**
 	 * @param props.value
+	 * @param props.readonly
 	 */
 	constructor(props) {
 		super(props);
@@ -20,6 +21,8 @@ export default class TapTextareaField extends React.Component {
 	}
 
 	onChange(event) {
+		event.preventDefault();
+
 		this.setState({
 			value: event.target.value || ''
 		});
@@ -35,6 +38,7 @@ export default class TapTextareaField extends React.Component {
 						rows="3" 
 						id={this.props.name}
 						value={this.state.value}
+						readOnly={this.props.readonly}
 						onChange={this.onChange}
 					></textarea>
 					<span className="help-block">{this.props.help}</span>

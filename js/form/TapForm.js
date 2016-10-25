@@ -54,19 +54,20 @@ export default class TapForm extends React.Component {
 	
 	render() {
 		let entry = this.state.entry;
+		let readonly = !this.props.btnsEnabled;
 		return (
 			<div className="row well">
 				<form className={this.getFormStyleClasses()}>
 					<fieldset>
-						<legend>{this.props.title}</legend>
+						<legend>{this.props.title}</legend> 
 						<div className="row">
 							<div className="col-lg-6">
-								<TapTextField name="inputString" desc="String" value={entry.string} />
-								<TapDateField name="inputDate" desc="Date" value={entry.date} />
+								<TapTextField name="inputString" desc="String" value={entry.string} readonly={readonly} />
+								<TapDateField name="inputDate" desc="Date" value={entry.date} readonly={readonly} />
 							</div>
 							<div className="col-lg-6">
-								<TapTextField name="inputNumber" desc="Number" value={entry.number} />
-								<TapCheckboxField name="inputBoolean" desc="Boolean" value={entry.boolean} />
+								<TapTextField name="inputNumber" desc="Number" value={entry.number} readonly={readonly} />
+								<TapCheckboxField name="inputBoolean" desc="Boolean" value={entry.boolean} readonly={readonly} />
 							</div>
 						</div>
 
@@ -74,6 +75,7 @@ export default class TapForm extends React.Component {
 							name="inputTextarea"
 							desc="Textarea"
 							value={entry.text}
+							readonly={readonly}
 							help="Some help description"
 						/>
 

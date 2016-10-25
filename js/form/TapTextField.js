@@ -2,6 +2,7 @@ export default class TapTextField extends React.Component {
 
 	/**
 	 * @param props.value
+	 * @param props.readonly
 	 */
 	constructor(props) {
 		super(props);
@@ -20,6 +21,8 @@ export default class TapTextField extends React.Component {
 	}
 
 	onChange(event) {
+		event.preventDefault();
+
 		this.setState({
 			value: event.target.value || ''
 		});
@@ -33,6 +36,7 @@ export default class TapTextField extends React.Component {
 					<input type="text"
 						className="form-control"
 						id={this.props.name}
+						readOnly={this.props.readonly}
 						placeholder={this.props.desc}
 						value={this.state.value}
 						onChange={this.onChange}

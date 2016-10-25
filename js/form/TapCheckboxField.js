@@ -2,6 +2,7 @@ export default class TapCheckboxField extends React.Component {
 
 	/**
 	 * @param props.value
+	 * @param props.readonly
 	 */
 	constructor(props) {
 		super(props);
@@ -20,6 +21,8 @@ export default class TapCheckboxField extends React.Component {
 	}
 
 	onChange(event) {
+		//event.preventDefault();
+
 		this.setState({
 			value: event.target.checked
 		});
@@ -34,6 +37,7 @@ export default class TapCheckboxField extends React.Component {
 							<input type="checkbox" 
 								id={this.props.name} 
 								checked={this.state.value}
+								disabled={this.props.readonly}
 								onChange={this.onChange}
 							/>
 							{this.props.desc}
