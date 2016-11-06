@@ -1,4 +1,4 @@
-import TapEditPage from "./TapEditPage";
+import TapEditPage from "./components/TapEditPage";
 
 $(document).ready(function() {
 
