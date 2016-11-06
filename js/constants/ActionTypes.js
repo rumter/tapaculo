@@ -1,0 +1,18 @@
+const ActionTypes = Object.freeze({
+	OPEN_DETAILS_FORM: 1,
+	CLOSE_DETAILS_FORM: 2,
+
+	OPEN_ADD_FORM: 3,
+	CLOSE_ADD_FORM: 4,
+	SAVE_NEW_ENTRY: 5,
+
+	OPEN_EDIT_FORM: 6,
+	CLOSE_EDIT_FORM: 7,
+	SAVE_EDITED_ENTRY: 8,
+
+	OPEN_DELETE_FORM: 9,
+	CLOSE_DELETE_FORM: 10,
+	DELETE_ENTRY: 11
+});
+
+export default ActionTypes;

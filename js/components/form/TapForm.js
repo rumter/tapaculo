@@ -1,4 +1,4 @@
-import TapHelper from '../utils/TapHelper';
+import TapHelper from '../../utils/TapHelper';
 import TapTextField from './TapTextField';
 import TapDateField from './TapDateField';
 import TapCheckboxField from './TapCheckboxField';

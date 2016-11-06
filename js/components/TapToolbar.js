@@ -1,4 +1,4 @@
-import TapHelper from './utils/TapHelper';
+import TapHelper from '../utils/TapHelper';
 
 export default class TapToolbar extends React.Component {
 

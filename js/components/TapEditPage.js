@@ -1,14 +1,8 @@
+import Modes from '../constants/Modes';
 import TapTitle from './TapTitle';
 import TapGrid from './grid/TapGrid';
 import TapForm from './form/TapForm';
 import TapToolbar from './TapToolbar';
-
-const Modes = Object.freeze({
-	NOT_SELECTED: 1,
-	VIEW_DETAILS: 2,
-	CREATE: 3,
-	EDIT: 4
-});
 
 const ToolbarEnables = Object.freeze({
 	[Modes.NOT_SELECTED]: {

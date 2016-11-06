@@ -4,7 +4,8 @@ module.exports = {
 
 	resolve: {
 		modulesDirectories: [
-			'./js'
+			'./js',
+			'node_modules'
 		]
 	},
 
@@ -17,6 +18,10 @@ module.exports = {
 			test: /\.js$/,
 			loader: 'babel'
 		}]
+	},
+
+	externals: {
+		"immutable": "Immutable"
 	}
 
 };
