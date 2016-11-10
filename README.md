@@ -9,6 +9,8 @@
 - `bootswatch` (темы для `bootstrap`)
 - `babel` (для `jsx` и `es2015`)
 - `react`
+- `redux`
+- `immutable`
 
 ## Сборка и запуск
 ### Подготовка окружения
