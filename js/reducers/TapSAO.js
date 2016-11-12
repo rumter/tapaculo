@@ -16,16 +16,32 @@ export default class TapSAO {
 		return this.state;
 	}
 
+	getEntriesMap() {
+		return this.state.get('entries');
+	}
+
+	getEntriesList() {
+		return this.getEntriesMap().toList();
+	}
+
 	getEntry(id) {
-		return this.state.entries.get(id);
+		return this.getEntriesMap().get(id + '');
+	}
+
+	getSelectedId() {
+		return this.state.get('selectedId');
 	}
 
 	getSelectedEntry() {
-		return this.getEntry(this.state.selectedId);
+		let selectedId = this.getSelectedId();
+		if (selectedId == null) {
+			return {};
+		}
+		return this.getEntry(selectedId);
 	}
 
 	getMode() {
-		return this.state.mode;
+		return this.state.get('mode');
 	}
 
 	select(id) {

@@ -1,16 +1,20 @@
 import { createStore } from 'redux';
+import { Provider } from 'react-redux';
 
 import tapReducer from './reducers/tapReducer';
-import TapEditPage from './components/TapEditPage';
+import TapEditPageContainer from './containers/TapEditPageContainer';
 
 
 const store = createStore(tapReducer);
+window.store = store;
 
 
 $(document).ready(function() {
 
 	ReactDOM.render(
-		<TapEditPage />,
+		<Provider store={store}>
+			<TapEditPageContainer />
+		</Provider>,
 		document.getElementById('container')
 	);
 

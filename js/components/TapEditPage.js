@@ -51,15 +51,13 @@ const FormButtonsEnables = Object.freeze({
 export default class TapEditPage extends React.Component {
 
 	/**
-	 * @param props: []
+	 * @param props.entriesList
+	 * @param props.selectedEntry
+	 * @param props.mode
+	 * @param props.onSelect
 	 */
 	constructor(props) {
 		super(props);
-
-		this.state = {
-			selectedEntry: {},
-			mode: Modes.NOT_SELECTED
-		};
 
 		this.loadEntries = this.loadEntries.bind(this);
 		this.onCreate = this.onCreate.bind(this);
@@ -71,32 +69,21 @@ export default class TapEditPage extends React.Component {
 	}
 
 	loadEntries() {
-		return [
-			{ id: 1, 	string: 'Canada',	 	date: '19.08.2016',	number: 61,	boolean: true, 	text: 'Some text about Canada' 		},
-			{ id: 2, 	string: 'Philippines', 	date: '02.05.2016',	number: 56,	boolean: false, text: 'Some text about Philippines' },
-			{ id: 3, 	string: 'Indonesia', 	date: '17.05.2016',	number: 28,	boolean: true, 	text: 'Some text about Indonesia' 	},
-			{ id: 4, 	string: 'China', 		date: '15.03.2016',	number: 54,	boolean: true, 	text: 'Some text about China' 		},
-			{ id: 5, 	string: 'France', 		date: '23.02.2016',	number: 39,	boolean: true, 	text: 'Some text about France' 		},
-			{ id: 6, 	string: 'France', 		date: '08.04.2016',	number: 51,	boolean: false, text: 'Some text about France' 		},
-			{ id: 7, 	string: 'Mexico', 		date: '21.04.2016',	number: 9,	boolean: false, text: 'Some text about Mexico' 		},
-			{ id: 8, 	string: 'Brazil', 		date: '03.01.2016',	number: 97,	boolean: true, 	text: 'Some text about Brazil' 		},
-			{ id: 9, 	string: 'Brazil', 		date: '10.12.2015',	number: 81,	boolean: false, text: 'Some text about Brazil' 		},
-			{ id: 10,	string: 'Indonesia', 	date: '19.11.2015',	number: 71,	boolean: true, 	text: 'Some text about Indonesia' 	}
-		];
+		return this.props.entriesList;
 	}
 
 	onSelect(entry) {
-		this.setState({ selectedEntry: entry, mode: Modes.VIEW_DETAILS });
 		console.log(entry);
+		this.props.onSelect(entry.id);
 	}
 
 	onCreate() {
-		this.setState({ selectedEntry: {}, mode: Modes.CREATE });
+		//this.setState({ selectedEntry: {}, mode: Modes.CREATE });
 		console.log("create");
 	}
 
 	onEdit() {
-		this.setState({ mode: Modes.EDIT });
+		//this.setState({ mode: Modes.EDIT });
 		console.log("edit");
 	}
 
@@ -106,9 +93,9 @@ export default class TapEditPage extends React.Component {
 
 	onCancel() {
 		if (this.state.mode == Modes.CREATE) {
-			this.setState({ mode: Modes.NOT_SELECTED });
+			//this.setState({ mode: Modes.NOT_SELECTED });
 		} else if (this.state.mode == Modes.EDIT) {
-			this.setState({ mode: Modes.VIEW_DETAILS });
+			//this.setState({ mode: Modes.VIEW_DETAILS });
 		} else {
 			console.error("onCancel: unsupported state: ", this.state);
 			return;
@@ -122,13 +109,15 @@ export default class TapEditPage extends React.Component {
 	}
 
 	render() {
+		let mode = this.props.mode;
+
 		return (
 			<div>
 				<TapTitle title="Edit" />
 				<TapToolbar 
-					createEnabled={ToolbarEnables[this.state.mode].create}
-					editEnabled={ToolbarEnables[this.state.mode].edit}
-					deleteEnabled={ToolbarEnables[this.state.mode].delete}
+					createEnabled={ToolbarEnables[mode].create}
+					editEnabled={ToolbarEnables[mode].edit}
+					deleteEnabled={ToolbarEnables[mode].delete}
 					onCreate={this.onCreate}
 					onEdit={this.onEdit}
 					onDelete={this.onDelete}
@@ -138,11 +127,11 @@ export default class TapEditPage extends React.Component {
 					onSelect={this.onSelect} 
 				/>
 				<TapForm 
-					title={FormTitles[this.state.mode]}
-					entry={this.state.selectedEntry} 
-					enabled={FormEnables[this.state.mode]}
+					title={FormTitles[mode]}
+					entry={this.props.selectedEntry} 
+					enabled={FormEnables[mode]}
 					msgForDisabled="Select an entry to view its details."
-					btnsEnabled={FormButtonsEnables[this.state.mode]}
+					btnsEnabled={FormButtonsEnables[mode]}
 					onCancel={this.onCancel}
 					onSubmit={this.onSubmit}
 				/>
